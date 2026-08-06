@@ -1,8 +1,11 @@
 {
-  "name": "@jest-angular-forms/source",
+  "name": "@mazzuco-dev/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build:jest-angular-forms": "npx nx build jest-angular-forms",
+    "link:jest-angular-forms": "npm run build:jest-angular-forms && cd dist/libs/jest-angular-forms && npm link"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~22.0.4",
@@ -22,6 +25,7 @@
     "@angular/compiler-cli": "~22.0.4",
     "@angular/language-service": "~22.0.4",
     "@eslint/js": "^9.8.0",
+    "@jest/globals": "^30.4.1",
     "@nx/angular": "23.1.1",
     "@nx/eslint": "23.1.1",
     "@nx/eslint-plugin": "23.1.1",
@@ -39,14 +43,20 @@
     "eslint-config-prettier": "^10.0.0",
     "jest": "~30.3.0",
     "jest-environment-jsdom": "~30.3.0",
+    "jest-environment-node": "~30.3.0",
     "jest-preset-angular": "~17.0.0",
     "jest-util": "~30.3.0",
+    "jsonc-eslint-parser": "^2.1.0",
     "nx": "23.1.1",
     "prettier": "~3.6.2",
     "ts-jest": "^29.4.7",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.58.0"
+    "typescript-eslint": "^8.58.0",
+    "verdaccio": "^6.3.2"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }
