@@ -1,7 +1,7 @@
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { expect } from '@jest/globals';
 import { registerAngularFormMatchers } from '../../setup';
-import { captureMatcherError } from '../utils';
+import { captureMatcherError } from '../utils/capture-matcher-error';
 
 registerAngularFormMatchers();
 
@@ -37,7 +37,7 @@ describe('toHaveControls', () => {
     });
 
     expect(message).toContain(
-      'Expected the form not to contain all specified controls',
+      'Expected form to have controls: email, rememberMe.',
     );
 
     expect(message).toContain('email');
@@ -101,7 +101,7 @@ describe('toHaveControls', () => {
     });
 
     expect(message).toContain(
-      'Expected received value to be an Angular FormGroup.',
+      'toHaveControls expected an Angular FormGroup, but received null.',
     );
   });
 });

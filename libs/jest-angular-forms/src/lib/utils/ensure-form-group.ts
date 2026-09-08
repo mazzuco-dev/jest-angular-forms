@@ -1,24 +1,27 @@
 import { FormGroup } from '@angular/forms';
 
-interface EnsureFormGroupSuccess {
-  success: true;
-  form: FormGroup;
-}
-
-interface EnsureFormGroupFailure {
-  success: false;
-  received: unknown;
-}
-
-type EnsureFormGroupResult = EnsureFormGroupSuccess | EnsureFormGroupFailure;
-
-export function ensureFormGroup(received: unknown): EnsureFormGroupResult {
-  if (received instanceof FormGroup) {
-    return {
-      success: true,
-      form: received,
-    };
+export function ensureFormGroup(
+  received: unknown,
+  matcherName: string,
+): FormGroup {
+  if (!(received instanceof FormGroup)) {
+    const type = getType(received);
+    throw new TypeError(
+      `${matcherName} expected an Angular FormGroup, but received ${type}.`,
+    );
   }
 
-  return { success: false, received };
+  return received;
+}
+
+function getType(value: unknown): string {
+  if (value === null) {
+    return 'null';
+  }
+
+  if (value === undefined) {
+    return 'undefined';
+  }
+
+  return value.constructor?.name ?? typeof value;
 }

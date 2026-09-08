@@ -1,10 +1,8 @@
-import { ControlPath } from '../lib/utils';
-
 declare global {
   namespace jest {
     interface Matchers<R> {
       toHaveControl(path: string): R;
-      toHaveControls(...paths: ControlPath[]): R;
+      toHaveControls(...paths: Array<string | string[]>): R;
     }
   }
 }
@@ -12,7 +10,7 @@ declare global {
 declare module 'expect' {
   interface Matchers<R> {
     toHaveControl(path: string): R;
-    toHaveControls(...paths: ControlPath[]): R;
+    toHaveControls(...paths: Array<string | string[]>): R;
   }
 }
 

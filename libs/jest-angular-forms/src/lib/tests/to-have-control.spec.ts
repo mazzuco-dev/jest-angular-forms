@@ -1,6 +1,6 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { registerAngularFormMatchers } from '../../setup';
-import { captureMatcherError } from '../utils';
+import { captureMatcherError } from '../utils/capture-matcher-error';
 
 registerAngularFormMatchers();
 
@@ -39,7 +39,7 @@ describe('toHaveControl', () => {
     const message = captureMatcherError(() =>
       expect(form).toHaveControl('email'),
     );
-    expect(message).toContain('Expected form to contain control "email".');
+    expect(message).toContain('Expected form to have control "email".');
   });
 
   it('should fail when received is not a FormGroup', () => {
@@ -47,8 +47,8 @@ describe('toHaveControl', () => {
       expect({}).toHaveControl('email'),
     );
 
-    expect(message).toContain(
-      'Expected received value to be an Angular FormGroup.',
+    expect(message).toBe(
+      'toHaveControl expected an Angular FormGroup, but received Object.',
     );
   });
 });
