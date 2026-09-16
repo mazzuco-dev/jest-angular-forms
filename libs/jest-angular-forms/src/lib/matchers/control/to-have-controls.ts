@@ -7,8 +7,7 @@ export function toHaveControls(
   received: unknown,
   ...receivedPaths: Array<string | string[]>
 ): MatcherResult {
-  const matcher = 'toHaveControls';
-  const form = ensureFormGroup(received, matcher);
+  const form = ensureFormGroup(received, 'toHaveControls');
 
   const paths = normalizePaths(receivedPaths);
 
