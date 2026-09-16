@@ -19,8 +19,10 @@
         "outputPath": "dist/libs/jest-angular-forms",
         "main": "libs/jest-angular-forms/src/index.ts",
         "tsConfig": "libs/jest-angular-forms/tsconfig.lib.json",
-        "assets": ["libs/jest-angular-forms/*.md"]
-      }
+        "assets": ["libs/jest-angular-forms/*.md", "libs/jest-angular-forms/LICENSE"]
+      },
+      "generatePackageJson": true,
+      "generateExportsField": true
     },
     "nx-release-publish": {
       "options": {

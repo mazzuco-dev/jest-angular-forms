@@ -67,46 +67,34 @@ The matchers can then be used without importing the library in every test file.
 
 ## Available matchers
 
-| Matcher                    | Description                               |
-|----------------------------|-------------------------------------------|
-| `toHaveControl(path)`      | Checks whether a control exists           |
-| `toHaveControls(...paths)` | Checks whether all controls exist         |
-| `toHaveFormArray(path)`    | Checks whether a control is a `FormArray` |
+| Matcher                            | Description                             |
+|------------------------------------|-----------------------------------------|
+| `toHaveControl(path)`              | Checks whether a control exists         |
+| `toHaveControls(...paths)`         | Checks whether all controls exist       |
+| `toHaveRequiredControl(path)`      | Checks whether a control is required    |
+| `toHaveRequiredControls(...paths)` | Checks whether all controls is required |
 
 ## Planned MVP matchers
 
-### Structure
+### Control
 
 - `toHaveControl`
 - `toHaveControls`
-- `toHaveFormGroup`
-- `toHaveFormArray`
-
-### Validators
-
 - `toHaveRequiredControl`
 - `toHaveRequiredControls`
 - `toHaveValidator`
 - `toHaveValidators`
-
-### State
-
-- `toBeValidForm`
-- `toBeInvalidForm`
-- `toHaveValidControl`
-- `toHaveInvalidControl`
+- `toHaveControlError`
+- `toHaveControlErrors`
+- `toHaveControlValue`
 - `toHaveEnabledControl`
 - `toHaveDisabledControl`
 
-### Errors
+### Form
 
-- `toHaveControlError`
-- `toHaveControlErrors`
+- `toBeValidForm`
+- `toBeInvalidForm`
 - `toHaveFormError`
-
-### Values
-
-- `toHaveControlValue`
 - `toHaveFormValue`
 - `toHaveRawValue`
 

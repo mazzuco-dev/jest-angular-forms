@@ -31,5 +31,16 @@
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
     "jest": "^30.0.0"
+  },
+  "homepage": "https://github.com/mazzuco-dev/jest-angular-forms#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazzuco-dev/jest-angular-forms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mazzuco-dev/jest-angular-forms/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
