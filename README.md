@@ -67,12 +67,15 @@ The matchers can then be used without importing the library in every test file.
 
 ## Available matchers
 
-| Matcher                            | Description                             |
-|------------------------------------|-----------------------------------------|
-| `toHaveControl(path)`              | Checks whether a control exists         |
-| `toHaveControls(...paths)`         | Checks whether all controls exist       |
-| `toHaveRequiredControl(path)`      | Checks whether a control is required    |
-| `toHaveRequiredControls(...paths)` | Checks whether all controls is required |
+| Matcher                            | Description                                                                     |
+|------------------------------------|---------------------------------------------------------------------------------|
+| `toHaveControl(path)`              | Checks whether a control exists at the given path                               |
+| `toHaveControls(...paths)`         | Checks whether controls exist at all the given paths                            |
+| `toHaveRequiredControl(path)`      | Checks whether the control at the given path has the required validator         |
+| `toHaveRequiredControls(...paths)` | Checks whether the controls at all the given paths have the required validator  |
+| `toHaveControlError(path, error)`  | Checks whether the control at the given path has the specified validation error |
+| `toHaveValidator(path, validator)` | Checks whether the control at the given path has the specified validator        |
+| `toValueEqual(expectedValue)`      | Checks whether the form's raw value equals the expected value                   |
 
 ## Planned MVP matchers
 
@@ -82,9 +85,7 @@ The matchers can then be used without importing the library in every test file.
 - `toHaveControls`
 - `toHaveRequiredControl`
 - `toHaveRequiredControls`
-- `toHaveValidator`
 - `toHaveValidators`
-- `toHaveControlError`
 - `toHaveControlErrors`
 - `toHaveControlValue`
 - `toHaveEnabledControl`
