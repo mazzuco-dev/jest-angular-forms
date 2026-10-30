@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build:jest-angular-forms": "npx nx build jest-angular-forms",
+    "publish:jest-angular-forms": "nx build jest-angular-forms && cd dist/libs/jest-angular-forms && npm publish --access public",
     "link:jest-angular-forms": "npm run build:jest-angular-forms && cd dist/libs/jest-angular-forms && npm link"
   },
   "private": true,

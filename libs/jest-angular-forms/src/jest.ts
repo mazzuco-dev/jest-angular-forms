@@ -1,6 +1,8 @@
 import { ValidatorFn } from '@angular/forms';
 
 declare global {
+  // Jest's global expect is declared through this namespace by @types/jest.
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace jest {
     interface Matchers<R> {
       toHaveControl(path: string): R;
