@@ -1,0 +1,142 @@
+<section id="api" class="docs-section">
+  <h2 i18n="@@docs.api.heading">API reference</h2>
+  <p i18n="@@docs.api.intro">
+    Matchers return an assertion result with a failure message and support .not.
+    Methods taking multiple paths accept strings and arrays of strings.
+  </p>
+  <h3 i18n="@@docs.api.groups.0.title">Structure and state</h3>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Matcher</th>
+          <th i18n="@@docs.api.behaviorLabel">Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>toHaveControl(path)</code></td>
+          <td i18n="@@docs.api.groups.0.matchers.0.description">
+            The control exists at the given path.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveControls(...paths)</code></td>
+          <td i18n="@@docs.api.groups.0.matchers.1.description">
+            All specified controls exist.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveEnabledControl(path)</code></td>
+          <td i18n="@@docs.api.groups.0.matchers.2.description">
+            The control exists and is enabled.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveDisabledControl(path)</code></td>
+          <td i18n="@@docs.api.groups.0.matchers.3.description">
+            The control exists and is disabled.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 i18n="@@docs.api.groups.1.title">Validation</h3>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Matcher</th>
+          <th i18n="@@docs.api.behaviorLabel">Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>toHaveRequiredControl(path)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.0.description">
+            The control has Validators.required.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveRequiredControls(...paths)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.1.description">
+            All controls have Validators.required.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveValidator(path, validator)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.2.description">
+            The control has the same ValidatorFn reference.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveValidators(path, ...validators)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.3.description">
+            The control has all ValidatorFn references.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveControlError(path, error)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.4.description">
+            The control has the error in its current state.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveControlErrors(path, ...errors)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.5.description">
+            The control has all errors in its current state.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveFormError(error)</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.6.description">
+            The FormGroup has the error in its current state.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toBeValidForm()</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.7.description">
+            The FormGroup is valid.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toBeInvalidForm()</code></td>
+          <td i18n="@@docs.api.groups.1.matchers.8.description">
+            The FormGroup is invalid.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 i18n="@@docs.api.groups.2.title">Values</h3>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Matcher</th>
+          <th i18n="@@docs.api.behaviorLabel">Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>toHaveControlValue(path, expected)</code></td>
+          <td i18n="@@docs.api.groups.2.matchers.0.description">
+            Deeply compares a control value.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveFormValue(expected)</code></td>
+          <td i18n="@@docs.api.groups.2.matchers.1.description">
+            Deeply compares form.value.
+          </td>
+        </tr>
+        <tr>
+          <td><code>toHaveRawValue(expected)</code></td>
+          <td i18n="@@docs.api.groups.2.matchers.2.description">
+            Deeply compares form.getRawValue().
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

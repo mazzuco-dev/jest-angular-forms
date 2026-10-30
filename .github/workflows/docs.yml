@@ -1,0 +1,64 @@
+name: Docs CI and Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm exec nx run jest-angular-forms:test
+      - run: npm exec nx run jest-angular-forms:build
+      - run: npm exec nx run docs:lint
+      - run: npm exec nx run docs:build -- --base-href /jest-angular-forms/
+      - name: Check prerendered languages
+        run: |
+          test -f dist/apps/docs/browser/.nojekyll
+          test -f dist/apps/docs/browser/logo.svg
+          grep -q '<html lang="en"' dist/apps/docs/browser/index.html
+          grep -q '<base href="/jest-angular-forms/"' dist/apps/docs/browser/index.html
+          grep -q 'Jest matchers for Angular Reactive Forms' dist/apps/docs/browser/index.html
+          grep -q '<title>jest-angular-forms — documentation</title>' dist/apps/docs/browser/index.html
+          grep -q '<html lang="pt-BR"' dist/apps/docs/browser/pt/index.html
+          grep -q '<base href="/jest-angular-forms/pt/"' dist/apps/docs/browser/pt/index.html
+          grep -q 'Matchers Jest para Angular Reactive Forms' dist/apps/docs/browser/pt/index.html
+          grep -q '<title>jest-angular-forms — documentação</title>' dist/apps/docs/browser/pt/index.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docs-site
+          path: dist/apps/docs/browser
+          include-hidden-files: true
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: docs-site
+          path: site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

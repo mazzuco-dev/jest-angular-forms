@@ -1,0 +1,26 @@
+<section id="setup" class="docs-section">
+  <h2 i18n="@@docs.setup.heading">Installation and configuration</h2>
+  <p i18n="@@docs.setup.intro">
+    Install the package as a development dependency in the project running the
+    tests.
+  </p>
+  <h3>1. <span i18n="@@docs.setup.install">Install</span></h3>
+  <pre><code>npm install --save-dev &#64;mazzuco-dev/jest-angular-forms</code></pre>
+  <h3>2. <span i18n="@@docs.setup.register">Register matchers</span></h3>
+  <div class="code-caption">src/test-setup.ts</div>
+  <pre><code>import &#123; setupZonelessTestEnv &#125; from 'jest-preset-angular/setup-env/zoneless';
+import &#123; registerAngularFormMatchers &#125; from '&#64;mazzuco-dev/jest-angular-forms';
+
+setupZonelessTestEnv();
+registerAngularFormMatchers();</code></pre>
+  <h3>3. <span i18n="@@docs.setup.configure">Configure Jest</span></h3>
+  <div class="code-caption">jest.config.ts</div>
+  <pre><code>export default &#123;
+  setupFilesAfterEnv: ['&lt;rootDir&gt;/src/test-setup.ts'],
+&#125;;</code></pre>
+  <p class="technical-note" i18n="@@docs.setup.configNote">
+    Include the setup file in tsconfig.spec.json as well so TypeScript can see
+    the matcher declarations. If your tests use Zone.js, initialize that
+    environment before calling registerAngularFormMatchers().
+  </p>
+</section>

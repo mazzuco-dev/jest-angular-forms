@@ -1,0 +1,26 @@
+dl {
+  margin: 0;
+}
+dl div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+dt {
+  color: var(--angular);
+  font: 700 12px var(--mono);
+}
+dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  dl div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

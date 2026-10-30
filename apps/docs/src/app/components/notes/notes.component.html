@@ -1,0 +1,41 @@
+<section id="notes" class="docs-section">
+  <h2 i18n="@@docs.notes.heading">Behavior details</h2>
+  <dl>
+    <div>
+      <dt>Paths</dt>
+      <dd i18n="@@docs.notes.paths">
+        Paths are resolved with FormGroup.get(). Examples: profile.name and
+        addresses.0.street. A missing path fails the assertion.
+      </dd>
+    </div>
+    <div>
+      <dt>ValidatorFn</dt>
+      <dd i18n="@@docs.notes.validators">
+        toHaveValidator and toHaveValidators use hasValidator(), which compares
+        function references. Store and reuse the ValidatorFn instance assigned
+        to the control.
+      </dd>
+    </div>
+    <div>
+      <dt>hasError()</dt>
+      <dd i18n="@@docs.notes.errors">
+        Error matchers use hasError() against the current validation state. They
+        do not trigger validation themselves.
+      </dd>
+    </div>
+    <div>
+      <dt>value / rawValue</dt>
+      <dd i18n="@@docs.notes.values">
+        toHaveFormValue compares form.value, which omits disabled controls.
+        toHaveRawValue uses getRawValue() and includes them. Jest performs deep
+        equality.
+      </dd>
+    </div>
+    <div>
+      <dt>.not</dt>
+      <dd i18n="@@docs.notes.negation">
+        Standard Jest negation works too: expect(form).not.toBeValidForm().
+      </dd>
+    </div>
+  </dl>
+</section>

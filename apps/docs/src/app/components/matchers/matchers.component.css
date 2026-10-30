@@ -1,0 +1,38 @@
+h3 {
+  margin: 32px 0 12px;
+  color: var(--jest);
+  font-size: 16px;
+}
+.table-scroll {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th {
+  color: var(--muted);
+  background: var(--surface);
+  text-align: left;
+  font: 700 11px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 11px 13px;
+  vertical-align: top;
+}
+tr:nth-child(even) {
+  background: #fcf8f9;
+}
+td:first-child {
+  min-width: 270px;
+}
+td code {
+  color: var(--jest);
+  font-size: 12px;
+  white-space: nowrap;
+}

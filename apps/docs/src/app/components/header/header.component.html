@@ -1,0 +1,30 @@
+<header class="site-header">
+  <a class="brand" [href]="englishUrl" aria-label="jest-angular-forms"
+    ><img class="brand-mark" src="logo.svg" alt="" /><span
+      >jest-angular-forms</span
+    ><small>docs</small></a
+  >
+  <div class="header-actions">
+    <nav class="languages" aria-label="Language / Idioma">
+      <a
+        [href]="englishUrl"
+        hreflang="en"
+        [attr.aria-current]="!isPortuguese ? 'page' : null"
+        >EN</a
+      >
+      <a
+        [href]="portugueseUrl"
+        hreflang="pt-BR"
+        [attr.aria-current]="isPortuguese ? 'page' : null"
+        >PT</a
+      >
+    </nav>
+    <a
+      class="repo-link"
+      href="https://github.com/mazzuco-dev/jest-angular-forms"
+      target="_blank"
+      rel="noopener noreferrer"
+      >GitHub ↗</a
+    >
+  </div>
+</header>

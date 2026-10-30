@@ -1,0 +1,34 @@
+<section id="examples" class="docs-section">
+  <h2 i18n="@@docs.examples.heading">Usage examples</h2>
+  <p i18n="@@docs.examples.intro">
+    Paths follow AbstractControl.get() syntax, including nested groups and
+    FormArray indexes.
+  </p>
+  <h3 i18n="@@docs.examples.nested">Nested controls and FormArray</h3>
+  <pre><code>const form = new FormGroup(&#123;
+  profile: new FormGroup(&#123; name: new FormControl('', Validators.required) &#125;),
+  addresses: new FormArray([
+    new FormGroup(&#123; street: new FormControl('', Validators.required) &#125;),
+  ]),
+&#125;);
+
+expect(form).toHaveControls('profile.name', 'addresses.0.street');
+expect(form).toHaveRequiredControls(['profile.name', 'addresses.0.street']);</code></pre>
+  <h3 i18n="@@docs.examples.values">Values and disabled controls</h3>
+  <pre><code>const form = new FormGroup(&#123;
+  email: new FormControl('ada&#64;example.com'),
+  id: new FormControl(&#123; value: 42, disabled: true &#125;),
+&#125;);
+
+expect(form).toHaveFormValue(&#123; email: 'ada&#64;example.com' &#125;);
+expect(form).toHaveRawValue(&#123; email: 'ada&#64;example.com', id: 42 &#125;);
+expect(form).toHaveDisabledControl('id');</code></pre>
+  <h3 i18n="@@docs.examples.errors">Errors and validators</h3>
+  <pre><code>const minLength = Validators.minLength(8);
+const password = new FormControl('short', &#123; validators: [minLength] &#125;);
+const form = new FormGroup(&#123; password &#125;);
+
+expect(form).toHaveValidator('password', minLength);
+expect(form).toHaveControlError('password', 'minlength');
+expect(form).toBeInvalidForm();</code></pre>
+</section>

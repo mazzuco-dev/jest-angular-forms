@@ -1,0 +1,38 @@
+.overview {
+  padding-top: 0;
+}
+.breadcrumb {
+  color: var(--muted);
+  font: 12px var(--mono);
+  margin-bottom: 26px;
+}
+.breadcrumb span {
+  padding: 0 8px;
+  color: var(--angular);
+}
+h1 {
+  max-width: 800px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+  margin: 0 0 20px;
+}
+.lead {
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 760px;
+}
+.scope-note {
+  border-left: 3px solid var(--angular);
+  background: var(--tint);
+  padding: 14px 18px;
+  margin-top: 25px;
+}
+.scope-note strong {
+  color: var(--angular);
+  font: 700 12px var(--mono);
+}
+.scope-note p {
+  margin: 5px 0 0;
+  font-size: 13px;
+}

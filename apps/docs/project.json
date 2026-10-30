@@ -1,0 +1,105 @@
+{
+  "name": "docs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/docs/src",
+  "i18n": {
+    "sourceLocale": { "code": "en", "subPath": "" },
+    "locales": {
+      "pt-BR": {
+        "translation": "apps/docs/src/locale/messages.pt-BR.json",
+        "subPath": "pt"
+      }
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/docs",
+        "browser": "apps/docs/src/main.ts",
+        "tsConfig": "apps/docs/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/docs/public"
+          },
+          {
+            "glob": "logo.svg",
+            "input": "libs/jest-angular-forms"
+          }
+        ],
+        "styles": ["apps/docs/src/styles.css"],
+        "polyfills": ["@angular/localize/init"],
+        "server": "apps/docs/src/main.server.ts",
+        "outputMode": "static"
+      },
+      "configurations": {
+        "production": {
+          "localize": true,
+          "i18nMissingTranslation": "error",
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "localize": ["en"],
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      }
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "docs:build",
+        "staticFilePath": "dist/apps/docs/browser",
+        "spa": false
+      }
+    },
+    "serve-dev": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "options": {
+        "buildTarget": "docs:build:development"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "docs:build:development",
+        "format": "json",
+        "outputPath": "apps/docs/src/locale",
+        "outFile": "messages.en.json"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "docs:build",
+        "staticFilePath": "dist/apps/docs/browser",
+        "spa": false
+      }
+    }
+  }
+}
