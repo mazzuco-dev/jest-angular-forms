@@ -3,10 +3,6 @@
   <h1>jest-angular-forms</h1>
   <p>Readable Jest assertions for Angular Reactive Forms.</p>
   <p>
-    <a href="https://mazzuco-dev.github.io/jest-angular-forms/">Documentation</a>
-    ·
-    <a href="https://mazzuco-dev.github.io/jest-angular-forms/pt/">Documentação em português</a>
-    ·
     <a href="https://github.com/mazzuco-dev/jest-angular-forms/issues">Issues</a>
   </p>
 </div>
@@ -79,7 +75,7 @@ Every matcher receives a `FormGroup` in `expect(form)`. Paths use `FormGroup.get
 - **Validators and errors:** `toHaveRequiredControl`, `toHaveRequiredControls`, `toHaveValidator`, `toHaveValidators`, `toHaveControlError`, `toHaveControlErrors`, `toHaveFormError`, `toBeValidForm`, `toBeInvalidForm`
 - **Values:** `toHaveControlValue`, `toHaveFormValue`, `toHaveRawValue`
 
-See the [full API reference](https://mazzuco-dev.github.io/jest-angular-forms/#api) for signatures, descriptions, and examples.
+The [documentation app](apps/docs) includes signatures, descriptions, and examples.
 
 ### Behavior to know
 
@@ -92,14 +88,16 @@ See the [full API reference](https://mazzuco-dev.github.io/jest-angular-forms/#a
 
 The Angular app is in `apps/docs`, with separate TypeScript, HTML, and CSS files for each component. English is the default locale. Angular `i18n` markers live in the templates, and Portuguese translations live in `apps/docs/src/locale/messages.pt-BR.json`. The SSG build publishes English at `/` and Portuguese at `/pt/`.
 
-| Task                               | Command                                                          |
-| ---------------------------------- | ---------------------------------------------------------------- |
-| Preview both languages             | `npm exec nx run docs:serve`                                     |
-| Develop with live reload (English) | `npm exec nx run docs:serve-dev`                                 |
-| Build for GitHub Pages             | `npm exec nx run docs:build -- --base-href /jest-angular-forms/` |
-| Extract source messages            | `npm exec nx run docs:extract-i18n`                              |
+| Task                               | Command                             |
+| ---------------------------------- | ----------------------------------- |
+| Preview both languages             | `npm exec nx run docs:serve`        |
+| Develop with live reload (English) | `npm exec nx run docs:serve-dev`    |
+| Build for Vercel                   | `npm exec nx run docs:build`        |
+| Extract source messages            | `npm exec nx run docs:extract-i18n` |
 
-The static output is in `dist/apps/docs/browser`. Restart `docs:serve` after source changes. The [CI workflow](.github/workflows/docs.yml) tests the library, checks the localized site, and publishes it from `main`. Set the repository's Pages source to **GitHub Actions**.
+The static output is in `dist/apps/docs/browser`. Restart `docs:serve` after source changes. The [CI workflow](.github/workflows/docs.yml) tests the library and checks both localized pages.
+
+To deploy, import this repository into Vercel with the repository root as the Root Directory. The root [`vercel.json`](vercel.json) runs the Nx docs build and publishes `dist/apps/docs/browser`. Vercel will assign a deployment URL after the first deployment; use `/` for English and `/pt/` for Portuguese.
 
 ## Development
 
