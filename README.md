@@ -75,29 +75,18 @@ The matchers can then be used without importing the library in every test file.
 | `toHaveRequiredControls(...paths)` | Checks whether the controls at all the given paths have the required validator  |
 | `toHaveControlError(path, error)`  | Checks whether the control at the given path has the specified validation error |
 | `toHaveValidator(path, validator)` | Checks whether the control at the given path has the specified validator        |
-| `toValueEqual(expectedValue)`      | Checks whether the form's raw value equals the expected value                   |
+| `toHaveValidators(path, ...validators)` | Checks that the control has every supplied validator function            |
+| `toHaveControlErrors(path, ...errors)` | Checks that the control currently has every supplied error name           |
+| `toHaveControlValue(path, expected)` | Deeply compares a control's value with the expected value                   |
+| `toHaveEnabledControl(path)` | Checks that a control exists and is enabled                                  |
+| `toHaveDisabledControl(path)` | Checks that a control exists and is disabled                                 |
+| `toBeValidForm()` | Checks the form's current valid status                                              |
+| `toBeInvalidForm()` | Checks the form's current invalid status                                          |
+| `toHaveFormError(error)` | Checks an error on the FormGroup itself                                      |
+| `toHaveFormValue(expected)` | Deeply compares `form.value`, which omits disabled controls               |
+| `toHaveRawValue(expected)` | Deeply compares `form.getRawValue()`, including disabled controls           |
 
-## Planned MVP matchers
-
-### Control
-
-- `toHaveControl`
-- `toHaveControls`
-- `toHaveRequiredControl`
-- `toHaveRequiredControls`
-- `toHaveValidators`
-- `toHaveControlErrors`
-- `toHaveControlValue`
-- `toHaveEnabledControl`
-- `toHaveDisabledControl`
-
-### Form
-
-- `toBeValidForm`
-- `toBeInvalidForm`
-- `toHaveFormError`
-- `toHaveFormValue`
-- `toHaveRawValue`
+For `toHaveValidators`, reuse the same validator function instances assigned to the controls. The value matchers use Jest deep equality.
 
 ## License
 
